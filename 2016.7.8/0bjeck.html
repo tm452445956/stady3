@@ -9,11 +9,16 @@ divobj.width = prompt("框多宽","100px");
 divobj.height = prompt("框多高","100px");
 divobj.border = prompt("选择边框颜色","black 10px solid");
 divobj.background = prompt("选择背景颜色","black");
+divobj.left = prompt("离左边界多远","100px");
+divobj.top = prompt("离上边界多远","100px");
 var div = document.createElement("div");
 div.style.background = divobj.background;
 div.style.width = divobj.width;
 div.style.height = divobj.height;
 div.style.border = divobj.border;
+div.style.position = "absolute";
+div.style.top = divobj.top;
+div.style.left = divobj.left;
 document.body.appendChild(div);
 </script>
 </body>
