@@ -1,0 +1,20 @@
+﻿<html>
+<head>
+
+</head>
+<body>
+<script>
+var divobj = {width:"100px",height:"100px",border:"black 10px solid",background:"black"};
+divobj.width = prompt("框多宽","100px");
+divobj.height = prompt("框多高","100px");
+divobj.border = prompt("选择边框颜色","black 10px solid");
+divobj.background = prompt("选择背景颜色","black");
+var div = document.createElement("div");
+div.style.background = divobj.background;
+div.style.width = divobj.width;
+div.style.height = divobj.height;
+div.style.border = divobj.border;
+document.body.appendChild(div);
+</script>
+</body>
+</html>

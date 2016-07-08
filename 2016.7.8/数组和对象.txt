@@ -1,0 +1,7 @@
+var arr = [[1,2,3],{sex£ºman£¬height£º1.75}];
+arr[0][0]=0;
+arr[0][3]=4;
+arr[0].splice(2,1);
+arr[1].color="red";
+arr[1].color="black";
+
