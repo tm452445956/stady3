@@ -1,0 +1,72 @@
+﻿<html>
+<head>
+<script>
+var arr=[[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]];
+var pos=[[2,0],[2,1],[2,2],[1,2],[0,1]];
+for(var i = 0;i<pos.length;i++)
+{
+    var a=pos[i][0];
+	var b=pos[i][1];
+    arr[a][b]=1;
+}
+for(var i =0;i<arr.length;i++)
+{
+    document.write(arr[i].toString()+"<br/>");
+}
+//
+function neighbours(x,y)
+{
+var count=0;
+for(var i =-1;i<=1;i++)
+{
+   for(var j=-1;j<=1;j++)
+   {
+       if(i!=0||j!=0)
+	   {
+	        if(x+i>=0&&y+j>=0&&x+i<arr.length&&y+j<arr[x+i].length)
+			{
+	        if(arr[x+i][y+j]==1)
+			
+			count++;
+			}
+	   }
+   }
+}
+return count;
+}
+//
+var born=[];
+for(var i=0;i<arr.length;i++)
+{
+    for(var j=0;j<arr[i].length;j++)
+    {
+	   if(neighbours(i,j)==3&&arr[i][j]==0)
+	   {
+	       born.push([i,j]);
+	   }
+	}
+}
+for(var i=0;i<born.length;i++)
+{
+alert(born[i]);
+}
+var lonely=[];
+for(var i=0;i<arr.length;i++)
+{
+    for(var j = 0;j<arr[i].length;j++)
+	{
+	    if(neighbours(i,j)<=1&&arr[i][j]==1)
+		 {
+		 lonely.push([i,j]);
+		 }
+	}
+}
+for(var i=0;i<lonely.length;i++)
+{
+document.write("孤独死的元素是："+lonely[i]+"<br/>");
+}
+</script>
+</head>
+<body>
+</body>
+</html>
