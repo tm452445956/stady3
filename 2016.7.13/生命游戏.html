@@ -65,6 +65,21 @@ for(var i=0;i<lonely.length;i++)
 {
 document.write("孤独死的元素是："+lonely[i]+"<br/>");
 }
+var crowd=[];
+for(var i=0;i<arr.length;i++)
+{
+    for(var j = 0;j<arr[i].length;j++)
+	{
+	    if(neighbours(i,j)>3&&arr[i][j]==1)
+		 {
+		 crowd.push([i,j]);
+		 }
+	}
+}
+for(var i=0;i<crowd.length;i++)
+{
+document.write("拥挤死的元素="+crowd[i]+"<br/>");
+}
 </script>
 </head>
 <body>
