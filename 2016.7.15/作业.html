@@ -1,0 +1,67 @@
+<html>
+<head>
+<script>
+var x=["(","a","b","c","10","(","c","d",")",")"]
+var i=0;
+var s=[];
+var count=0;
+while(i<x.length)
+{
+    if(x[i]=="(")
+    {
+        count=count+1;
+        i++
+    }
+    if(x[i]==")")
+    {
+        count=count-1;
+        i++;
+    }
+    if(count==1)
+    {
+        if(isNaN(Number(x[i]))&&x[i]!="("&&x[i]!=")")
+        {
+            s.push(x[i]);
+            i++;
+        }
+        if(!isNaN(Number(x[i]))&&x[i]!="("&&x[i]!=")")
+        {
+            x[i]=parseInt(x[i]);
+           
+           s.push(x[i]);
+            i++;
+        }
+     }
+    if(count==2)
+    {
+        var n=[];
+        s.push(n);
+        while(x[i]!=")")
+        {
+            if(isNaN(Number(x[i]))&&x[i]!="("&&x[i]!=")")
+            {
+            n.push(x[i]);
+            i++;
+            }
+            if(!isNaN(Number(x[i]))&&x[i]!="("&&x[i]!=")")
+            {
+            x[i]=parseInt(x[i]);
+       
+            n.push(x[i]);
+            i++;
+            }
+        }
+    }
+}
+
+    document.write(s);
+    
+
+
+    
+
+</script>
+</head>
+<body>
+</body>
+</html>

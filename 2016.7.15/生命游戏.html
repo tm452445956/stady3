@@ -1,0 +1,154 @@
+<html>
+<head>
+<script>
+function create_life_board(row,col)
+{
+     var arrs=[];
+     var j=0;
+    while (j<row)
+	{
+      var arr=[];
+      j++;
+      var i=0;
+    while(i<col)
+    {
+      arr.push(0);
+      i++;
+    }
+	arrs.push(arr);
+	}
+return arrs;
+}
+function print_board(board)
+{
+var i = 0;
+while(i<board.length)
+{
+    document.write(board[i].toString()+"<br/>");
+    i++;
+}
+}
+function live_points(board,points)
+{
+    var i=0;
+    while(i<points.length)
+	{
+	var a=points[i][0];
+	var b=points[i][1];
+	board[a][b]=1;
+    i++;
+	}
+}
+function die_points(board,die)
+{   var i=0;
+    while(i<die.length)
+	{
+	var a=die[i][0];
+	var b=die[i][1];
+	board[a][b]=0;
+    i++;
+	}
+}
+function neighbours(x,y,board)
+{
+console.log(board);
+var count=0;
+var i=-1;
+while(i<=1)
+{   
+    var j=-1;
+    while(j<=1)
+   {
+       if(i!=0||j!=0)
+	   {
+	        if(x+i>=0&&y+j>=0&&x+i<board.length&&y+j<board[x+i].length)
+			{
+	        if(board[x+i][y+j]==1)
+			count++;
+			}
+	   }
+        j++;
+   }
+   i++;
+}
+return count;
+}
+function borns(board)
+{
+    var born=[];
+    var i=0;
+    while(i<board.length)
+{   
+    var j=0;
+    while(j<board[i].length)
+    {
+	   if(neighbours(i,j,board)==3&&board[i][j]==0)
+	   {
+	       born.push([i,j]);
+	   }
+       j++;
+	}
+    i++;
+}
+return born;
+}
+function lonely(board)
+{
+var lones=[];
+var i=0;
+while(i<board.length)
+{
+    var j=0;
+    while(j<board[i].length)
+	{
+	    if(neighbours(i,j,board)<=1&&board[i][j]==1)
+		 {
+		 lones.push([i,j]);
+		 }
+         j++;
+	}
+    i++;
+}
+return lones;
+}
+
+function crowed(board)
+{
+var crd=[];
+var i=0;
+while(i<board.length)
+{
+    var j=0;
+    while(j<board[i].length)
+	{
+	    if(neighbours(i,j,board)>3&&board[i][j]==1)
+		 {
+		 crd.push([i,j]);
+		 }
+         j++;
+	}
+    i++;
+}
+return crd;
+}
+function game_step(board)
+{
+var live = borns(board);
+var die = lonely(board).concat(crowed(board));
+live_points(board,live);
+die_points(board,die);
+document.body.innerHTML="";
+print_board(board);
+document.write("<button onclick='game_step(board);'>下一轮</button>");
+}
+
+var board=create_life_board(8,8);
+var pos=[[2,0],[2,1],[2,2],[1,2],[0,1]];
+live_points(board,pos);
+print_board(board);
+</script>
+</head>
+<body >
+<button onclick='game_step(board);'>下一轮</button>
+</body>
+</html>
