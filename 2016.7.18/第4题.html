@@ -1,0 +1,38 @@
+<html>
+<head>
+<script>
+var a=1;
+var b=1;
+var arr=[a,b];
+var count=0;
+var s=prompt("ÊäÈëÒ»¸öN","5");
+s=parseInt(s);
+if(s>2)
+{
+    for(var i=0;i<s-2;i++) 
+    {
+        var c = a+b;
+        a=b;    
+        b=c;
+        arr.push(c);
+    }    
+    document.write(arr);
+    for(var i=0;i<s;i++)
+    {
+        count=count+arr[i];
+    }
+    alert(count);
+}
+else if(s==1)
+{
+    alert(1);
+}
+else if(s==2)
+{
+    alert(2);
+}
+</script>
+</head>
+<body>
+</body>
+</html>
