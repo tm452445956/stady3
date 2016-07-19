@@ -6,7 +6,7 @@ function create_life_board(row,col)
     var arrs=[];
     var j=0;
     while (j<row)
-	{
+    {
         var arr=[];
         j++;
         var i=0;
@@ -132,7 +132,7 @@ function crowed(board)
     }
     return crd;
 }
-function game_step(board)
+function game_step(board) 
 {
     var live = borns(board);
     var die = lonely(board).concat(crowed(board));
