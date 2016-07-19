@@ -26,12 +26,11 @@ while(i<x.length)
         }
         if(!isNaN(Number(x[i]))&&x[i]!="("&&x[i]!=")")
         {
-            x[i]=parseInt(x[i]);
-           
-           s.push(x[i]);
+            x[i]=parseInt(x[i]);    
+            s.push(x[i]);
             i++;
         }
-     }
+    }
     if(count==2)
     {
         var n=[];
@@ -40,15 +39,14 @@ while(i<x.length)
         {
             if(isNaN(Number(x[i]))&&x[i]!="("&&x[i]!=")")
             {
-            n.push(x[i]);
-            i++;
+                n.push(x[i]);
+                i++;
             }
-            if(!isNaN(Number(x[i]))&&x[i]!="("&&x[i]!=")")
+            else if(!isNaN(Number(x[i]))&&x[i]!="("&&x[i]!=")")
             {
-            x[i]=parseInt(x[i]);
-       
-            n.push(x[i]);
-            i++;
+                x[i]=parseInt(x[i]);       
+                n.push(x[i]);
+                i++;
             }
         }
     }
