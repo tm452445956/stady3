@@ -1,13 +1,12 @@
 <html>
 <head>
 <script>
-var a=1;
+var str="afa addd wrrfa asd";
 var count=0;
-for(var i=0;i<64;i++)
+for(var i in str)
 {
-    count=count+a;
-    document.write(a+"<br/>");
-    a=a*2;
+    if(str[i]==" ")
+        count++;
 }
 alert(count);
 </script>

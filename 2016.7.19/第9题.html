@@ -1,13 +1,13 @@
 <html>
 <head>
 <script>
-var a=1;
+var N=prompt("输入一个值","5");
+var s=0;
 var count=0;
-for(var i=0;i<64;i++)
+for(i=1;i<=N;i++)
 {
-    count=count+a;
-    document.write(a+"<br/>");
-    a=a*2;
+    s+=i;
+    count+=s;
 }
 alert(count);
 </script>

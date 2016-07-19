@@ -1,0 +1,17 @@
+<html>
+<head>
+<script>
+var obj={weight:180,height:180,age:25};
+for(var i in obj)
+{
+    if(i.indexOf("gh")>=0)
+    {
+        obj[i]="0";
+    }
+}
+document.write(obj.weight+obj.height+obj.age);
+</script>
+</head>
+<body>
+</body>
+</html>
