@@ -1,18 +1,26 @@
-<html>
+ <html>
 <head>
 <script>
-var arr=[1,3,10,9,7,5];
-var max=0,min=0,average=0;
+var i=prompt("输入数值用，隔开","") ;
+var arr=i.split(',');
+var arr2=[];
 var count=0;
-for(var i=0;i<arr.length;i++)
+for(var i in arr)
 {
-    if(arr[i]>max)
-        max=arr[i];
-    else if(arr[i]<min)
-        min=arr[i];
-    count+=arr[i];
+    var j=parseInt(arr[i]);
+    arr2.push(j);
 }
-average=count/arr.length;
+console.log(arr2);
+var max=arr2[0],min=arr2[0];
+for(var i=0;i<arr2.length;i++)
+{
+    if(arr2[i]>max)
+        max=arr2[i];
+    else if(arr2[i]<min)
+        min=arr2[i];
+    count+=arr2[i];
+}
+average=count/arr2.length;
 document.write("max是"+max+"<br/>");
 document.write("min是"+min+"<br/>");
 document.write("average是"+average+"<br/>");

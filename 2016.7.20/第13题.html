@@ -1,0 +1,35 @@
+<html>
+<head>
+<script>
+function wan(i,a)
+{
+    var s=0;
+    for(var n=0;n<a.length;n++)
+    {
+        s+=a[n];
+    }
+    if(s==i)
+    return i;
+}
+var s=[];
+for(var i=1;i<=1000;i++)
+{
+    var a=[];
+    for(var j=1;j<i;j++)
+    {
+        if(i%j==0)
+        {
+            a.push(j);
+        }
+    }
+    if(wan(i,a)>0)
+    {
+        document.write(wan(i,a)+"&nbsp");
+    }
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>

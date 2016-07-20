@@ -1,16 +1,24 @@
 <html>
 <head>
 <script>
-var arr=[1,2,3,4,5,6,7,8,0,10];
-var min=arr[0];
-for(var i=0;i<arr.length;i++)
+var i=prompt("输入数值用，隔开","") ;
+var arr=i.split(',');
+var arr2=[];
+for(var i in arr)
 {
-    if(arr[i]<min)
+    var j=parseInt(arr[i]);
+    arr2.push(j);
+}
+console.log(arr2);
+var min=arr2[0];
+for(var i=0;i<arr2.length;i++)
+{
+    if(arr2[i]<min)
     {
-        min=arr[i];
+        min=arr2[i];
     }
 }
-document.write("最小值的位值在数组的第"+arr.indexOf(min)+"位"+"值是"+min);
+document.write("最小值的位值在数组的第"+arr2.indexOf(min)+"位"+"值是"+min);
 </script>
 </head>
 <body>

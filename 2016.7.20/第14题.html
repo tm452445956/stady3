@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+function zhi(i)
+{
+    var s=[];
+    for(var j=2;j<i;j++)
+    {
+        if(i%j==0)
+            s.push(j);
+    }
+    if(s.length==0)
+        return i;
+}
+for(i=1;i<1000;i++)
+{
+    if(zhi(i)>0)
+        document.write(zhi(i)+"&nbsp");
+}
+</script>
+</head>
+<body>
+</body>
+</html>
