@@ -1,30 +1,30 @@
 <html>
 <head>
 <script>
-function wan(i,a)
+function wan(i)
+{
+    if(all(i)==i)
+        return true;
+    else
+        return false;
+}
+function all(x)
 {
     var s=0;
-    for(var n=0;n<a.length;n++)
+    for(var j=1;j<x;j++)
     {
-        s+=a[n];
-    }
-    if(s==i)
-    return i;
-}
-var s=[];
-for(var i=1;i<=1000;i++)
-{
-    var a=[];
-    for(var j=1;j<i;j++)
-    {
-        if(i%j==0)
+        if(x%j==0)
         {
-            a.push(j);
+            s+=j;
         }
     }
-    if(wan(i,a)>0)
+    return s;
+}
+for(var i=1;i<=1000;i++)
+{
+    if(wan(i))
     {
-        document.write(wan(i,a)+"&nbsp");
+        document.write(i+"&nbsp");
     }
 }
 

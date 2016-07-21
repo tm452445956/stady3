@@ -1,0 +1,52 @@
+<html>
+<head>
+<script>
+//arr=[1,2,3,5,8];
+var a=prompt("输入一个数组","");
+arr=a.split(',');
+var arr1=[];
+for (var i=0;i<arr.length;i++)
+{
+    arr1.push(parseInt(arr[i]));
+}
+function sum(arr)
+{
+    return reduce(arr,0,function(x,y)
+                        {
+                            if(y%2==1)
+                                return x+=y;
+                            else 
+                                return x;
+                        });
+}
+//求一个数组 所有元素的积
+// arr=[1,2,3,5,8];
+function sum1(arr)
+{
+    return reduce(arr,0,function (x,y)
+                        {
+                            if(y%2==0)
+                                return x+=y;
+                            else
+                                return x;
+                        });
+}
+
+function reduce(arr,start,func)
+{
+    var s=start;
+    for(var i in arr)
+    {
+        s=func(s,arr[i]);
+    }
+    return s;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+}
+var i=sum(arr1);
+var j=sum1(arr1);
+alert(i);
+alert(j);
+</script>
+</head>
+<body>
+</body>
+</html>
