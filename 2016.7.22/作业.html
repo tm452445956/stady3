@@ -1,0 +1,21 @@
+﻿<html>
+<head>
+<script>
+var arr=["屠龙刀_装备","千年人参_药品","张三的信_任务","玄铁_材料","别云剑_装备","城堡钥匙_任务"];
+function getEquip(all,t)
+{
+    var arr1=[];
+    for(i in all)
+    {
+        if(all[i].indexOf(t)!=-1)
+            arr1.push(all[i]);
+    }
+    return arr1;
+}
+document.write(getEquip(arr,"装备"));
+</script>
+</head>
+<body>
+</body>
+</html>
+

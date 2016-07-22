@@ -3,7 +3,7 @@
 <script>
 //arr=[1,2,3,5,8];
 var a=prompt("输入一个数组","");
-arr=a.split(',');
+var arr=a.split(',');
 var arr1=[];
 for (var i=0;i<arr.length;i++)
 {
@@ -14,20 +14,16 @@ function sum(arr)
     return reduce(arr,0,function(x,y)
                         {
                             if(y%2==1)
-                                return x+=y;
-                            else 
+                                x+=y;
                                 return x;
                         });
 }
-//求一个数组 所有元素的积
-// arr=[1,2,3,5,8];
 function sum1(arr)
 {
     return reduce(arr,0,function (x,y)
                         {
                             if(y%2==0)
-                                return x+=y;
-                            else
+                                x+=y;
                                 return x;
                         });
 }

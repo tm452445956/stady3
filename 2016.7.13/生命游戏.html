@@ -6,7 +6,7 @@ var pos=[[2,0],[2,1],[2,2],[1,2],[0,1]];
 for(var i = 0;i<pos.length;i++)
 {
     var a=pos[i][0];
-	var b=pos[i][1];
+    var b=pos[i][1];
     arr[a][b]=1;
 }
 for(var i =0;i<arr.length;i++)
@@ -24,10 +24,10 @@ for(var i =-1;i<=1;i++)
        if(i!=0||j!=0)
 	   {
 	        if(x+i>=0&&y+j>=0&&x+i<arr.length&&y+j<arr[x+i].length)
-			{
+            {
                 if(arr[x+i][y+j]==1)
                 count++;
-			}
+            }
 	   }
    }
 }
@@ -39,11 +39,11 @@ for(var i=0;i<arr.length;i++)
 {
     for(var j=0;j<arr[i].length;j++)
     {
-	   if(neighbours(i,j)==3&&arr[i][j]==0)
-	   {
-	       born.push([i,j]);
-	   }
-	}
+        if(neighbours(i,j)==3&&arr[i][j]==0)
+        {
+            born.push([i,j]);
+        }
+    }
 }
 for(var i=0;i<born.length;i++)
 {
@@ -53,12 +53,12 @@ var lonely=[];
 for(var i=0;i<arr.length;i++)
 {
     for(var j = 0;j<arr[i].length;j++)
-	{
+    {
 	    if(neighbours(i,j)<=1&&arr[i][j]==1)
-		{
+        {
             onely.push([i,j]);
-		}
-	}
+        }
+    }
 }
 for(var i=0;i<lonely.length;i++)
 {
@@ -68,12 +68,12 @@ var crowd=[];
 for(var i=0;i<arr.length;i++)
 {
     for(var j = 0;j<arr[i].length;j++)
-	{
-	    if(neighbours(i,j)>3&&arr[i][j]==1)
-		{
+    {
+        if(neighbours(i,j)>3&&arr[i][j]==1)
+        {
             crowd.push([i,j]);
-		}
-	}
+        }
+    }
 }
 for(var i=0;i<crowd.length;i++)
 {

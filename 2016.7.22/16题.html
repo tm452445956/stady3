@@ -1,0 +1,38 @@
+<html>
+<head>
+<script>
+for(var i=1;i<=6;i++)
+{
+    for(var j=1;j<=6;j++)
+    {
+        if(i>=j)
+            continue;
+        for(var k=1;k<=6;k++)
+        {
+            if(j>=k)
+                continue;
+            for(var m=1;m<=6;m++)
+            {
+                if(m<=i||m==j||m==k)
+                    continue;
+                for(var n=1;n<=6;n++)
+                {
+                    if(n<=j||n==k||n<=m)
+                        continue;
+                    for(var o=1;o<=6;o++)
+                    {
+                        if(o<=n||o<=k)
+                            continue;
+                        document.write([i,j,k,m,n,o]+"<br/>");
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
+</head>
+<body>
+</body>
+</html>
+
