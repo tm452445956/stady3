@@ -11,17 +11,23 @@ function arr(x,y,z)
         return false;
     return true;
 }
+var arr1=[];
 for(var a=1;a<=20;a++)
 {
     for(var b=1;b<=20;b++)
     {
+        if(b==a)
+            continue;
         for(var c=1;c<=20;c++)
         {
-            if(a==b||b==c||c==a)
+            if(b==c||c==a)
                 continue;
-            if(arr(a,b,c))
-                document.write(a+","+b+","+c+"<br/>");
-                
+            var str = [a,b,c].sort().toString();
+            if(arr(a,b,c)&&arr1.indexOf(str)==-1)
+            {
+                arr1.push(str);
+                document.write(str+"<br/>");
+            }   
         }
     }
 }
