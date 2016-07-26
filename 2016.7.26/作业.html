@@ -1,0 +1,50 @@
+<html>
+<head>
+<script>
+</script>
+</head>
+<body>
+<div id="h_name" >
+</div>
+<div id="h_attack" >
+</div>
+<div id="h_defence" >
+</div>
+<div id="h_hp" >
+</div>
+<button onclick="zwj.equip(ytj);sync_zhuangbei(zwj)">“–ÃÏΩ£
+</button>
+<button onclick="zwj.equip(tld);sync_zhuangbei(zwj)">Õ¿¡˙µ∂
+</button>
+<br/>
+
+<script>
+function Hero(n,a,d,h)
+{
+    this.name=n;
+    this.attack=a;
+    this.defence=d;
+    this.hp=h;
+    this.equip=function(x)
+                {
+                    this.attack=a+x.attack;
+                    this.defence=d+x.defence;
+                    this.hp=h+x.hp;             
+                }
+}
+var ytj={attack:100,defence:0,hp:0};
+var tld={attack:200,defence:0,hp:20};
+var zwj=new Hero("’≈Œﬁº…",1,1,100);
+h_name.innerHTML=zwj.name;
+h_attack.innerHTML=zwj.attack;
+h_defence.innerHTML=zwj.defence;
+h_hp.innerHTML=zwj.hp;
+function sync_zhuangbei(zwj)
+{
+    h_attack.innerHTML=zwj.attack;
+    h_defence.innerHTML=zwj.defence;
+    h_hp.innerHTML=zwj.hp;
+}
+</script> 
+</body>
+</html> 

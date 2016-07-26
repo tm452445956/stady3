@@ -1,0 +1,73 @@
+<html>
+<head>
+<script>
+</script>
+</head>
+<body>
+<div id="h_name" style="float:left">
+
+</div>
+<div id="zs_hp" style="background:red;width:1000px;height:20px;float:left">
+</div>
+<button onclick="zs.kill(mo);sync_monster(mo)">
+打怪
+</button>
+<br/>
+<br/>
+<br/>
+<br/>
+<div id="m_name" style="float:left">
+
+</div>
+<div id="mo_hp" style="background:red;width:1000px;height:20px;float:left">
+</div>
+<button onclick="mo.kill(zs);sync_hero(zs)">
+打人
+</button>
+<script>
+function Hero(l,h,m,n)
+{
+    this.level=l;
+    this.hp=h;
+    this.mp=m;
+    this.name=n;
+    this.hurt=function(h)
+              {
+                  this.hp-=h;
+              }
+    this.kill=function(mon)
+              {
+                   mon.hurt(1000);
+              }
+}
+var zs=new Hero(40,1000,800,"赵云");
+function Monster(a,d,h,n)
+{
+    this.attack=a;
+    this.defence=d;
+    this.hp=h;
+    this.name=n;
+    this.kill=function(hero)
+              {
+                  hero.hurt(this.attack)
+              }
+    this.hurt=function(h)
+              {
+                  this.hp-=h;
+              }              
+
+}
+var mo=new Monster(100,90,10000,"肉山");
+h_name.innerHTML=zs.name;
+m_name.innerHTML=mo.name;
+function sync_monster(mo)
+{
+    mo_hp.style.width=mo.hp/10+"px";
+}
+function sync_hero(zs)
+{
+    zs_hp.style.width=zs.hp+"px";
+}
+</script>
+</body>
+</html>
