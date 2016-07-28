@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+var n=prompt("N","");
+n=parseInt(n);
+function a(n)
+{
+    return arr(1,1,n);
+}
+function f(n)
+{
+    if(n==0)
+        return [];
+    return f(n-1).concat(a(n));
+}
+function arr(a,b,n)
+{
+    if(n==1)
+        return a;
+    else
+        return arr(b,a+b,n-1);
+}
+console.log(f(n));
+</script>
+</head>
+<body>
+</body>
+</html>

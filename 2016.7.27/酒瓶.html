@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+var m=prompt("”–∂‡…Ÿ«Æ","");
+var m=parseInt(m);
+var x=parseInt(m/5);
+function he(count,x,ps,pg)
+{
+    count+=x;
+    ps+=x;
+    pg+=x;
+    console.log([count,x,ps,pg]);
+    if(ps/2<1&&pg/4<1)
+        return count;
+    else
+    {
+        x=huan(ps,pg);
+        return he(count,huan(ps,pg),ps%2,pg%4);
+    }
+}
+function huan(ps,pg)
+{
+    return parseInt(ps/2)+parseInt(pg/4);
+}
+alert(he(0,x,0,0));
+</script>
+</head>
+<body>
+</body>
+</html>

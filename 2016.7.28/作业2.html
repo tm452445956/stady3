@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+var i=prompt("输入一个自然数","6");
+i=parseInt(i);
+function yingzi(i,j)
+{
+    if(i!=j)
+    {
+        if(j==0)
+            return 0;
+        else if(i%j==0)
+            {
+                return j+yingzi(i,j-1);
+            }
+            else 
+                return yingzi(i,j-1);
+    }
+    else
+        return yingzi(i,j-1);
+}
+alert(yingzi(i,i));
+</script>
+</head>
+<body>
+</body>
+</html>

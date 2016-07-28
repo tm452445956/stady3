@@ -23,13 +23,14 @@ function Hero(n,a,d,h)
 {
     this.name=n;
     this.attack=a;
-    this.defence=d;
+    this.defence=d; 
     this.hp=h;
     this.equip=function(x)
                 {
                     this.attack=a+x.attack;
                     this.defence=d+x.defence;
-                    this.hp=h+x.hp;             
+                    this.hp=h+x.hp;
+                   
                 }
 }
 var ytj={attack:100,defence:0,hp:0};
