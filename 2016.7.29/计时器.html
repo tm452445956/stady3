@@ -1,0 +1,40 @@
+<html>
+<head>
+<script>
+var arr=["田萌","张宏博","王佚名","周悦","贺一鸣","梁晓雪"];
+var i=0;
+function show()
+{
+    if(i>=arr.length)
+    {
+        i=0;
+    }
+    txt.innerHTML=arr[i++];
+    
+}
+function stop()
+{
+    clearInterval(task);
+    st.style.display='none';
+    res.style.display='';
+    arr.splice(i-1,1);
+}
+function restart()
+{
+    if(arr.length==0)
+        alert("没有人了");
+    else
+        task=setInterval(show,100);
+        res.style.display='none';
+        st.style.display='';
+}
+    var task=setInterval(show,100);
+//clearInterval(task);
+</script>
+</head>
+<body>
+<button id="st" onclick="stop()">停止</button>
+<button id="res"  style="display:none" onclick="restart()">开始</button>
+<div id="txt"></div>
+</body>
+</html>

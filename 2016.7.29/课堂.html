@@ -1,0 +1,25 @@
+<html>
+<head>
+<script>
+var a=prompt("","2");
+a=parseInt(a);
+function pingfang(y)
+{
+    if(y==0)
+        return 1;
+    else 
+        return 2*pingfang(y-1);
+}
+function all(n)
+{
+    if(n==0)
+        return 0;
+    else
+        return pingfang(n-1)+all(n-1);
+}
+alert(all(a));
+</script>
+</head>
+<body>
+</body>
+</html>
