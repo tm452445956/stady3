@@ -1,0 +1,22 @@
+<html>
+<head>
+<script>
+for(var i=100;i<=999;i++)
+{
+    if(huiwen(i))
+    {    for(var k=1;k<=100;k++)
+            if(i/k==k)
+                document.write(i+"<br/>");
+    }
+}
+function huiwen(j)
+{
+    if(parseInt(j/100)==j%10)
+        return true;
+    else return false;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<script>
+var arr=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+function printn(i)
+{
+    var s=arr[i];
+    for(var j=i-1;j>=0;j--)
+    {
+        s=arr[j]+" "+s+" "+arr[j];
+    }
+    return s;
+}
+function printall(n)
+{
+    for(var k=n;k>=0;k--)
+    {
+        document.write(printspace(k)+printn(k)+"<br/>");
+    }
+}
+function printspace(n)
+{
+    var s="";
+    for(var i=25;i>n;i--)
+    {
+        s+="&nbsp";
+    }
+    return s;
+}
+printall(25);
+</script>
+</head>
+<body>
+</body>
+</html>
