@@ -11,23 +11,23 @@ function printn(i)
     }
     return s;
 }
-function printall(n)
+function printall(n,m)
 {
-    for(var k=n;k>=0;k--)
-    {
-        document.write(printspace(k)+printn(k)+"<br/>");
-    }
+    if(n<0)
+        return;
+    document.write(printspace(m-n)+printn(n)+"<br/>");
+    printall(n-1,m)
 }
 function printspace(n)
 {
     var s="";
-    for(var i=25;i>n;i--)
+    for(var i=0;i<n;i++)
     {
-        s+="&nbsp";
+        s+="&nbsp"+"&nbsp";
     }
     return s;
 }
-printall(25);
+printall(25,25);
 </script>
 </head>
 <body>

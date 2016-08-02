@@ -1,0 +1,25 @@
+<html>
+<head>
+<script>
+var a=prompt("输入10个正整数","");
+arr=a.split(",");
+var arr2=[];
+for(var i in arr)
+{
+    var j=parseInt(arr[i]);
+    arr2.push(j);
+}
+var max=arr2[0];
+for(var n=0;n<arr2.length;n++)
+{
+    if(arr2[n]>max)
+    {
+        max=arr2[n];
+    }
+}
+document.write(max);
+</script>
+</head>
+<body>
+</body>
+</html>
