@@ -1,8 +1,12 @@
 <html>
 <head>
 <script>
-function add(arr1,arr2)
+function addend(arr1,arr2)
 {
+    arr1=arr1.split("");
+    arr2=arr2.split("");
+    arr1=arr1.map(Number);
+    arr2=arr2.map(Number);
     var arr=[];
     var count=0;
     var min = arr1;
@@ -13,25 +17,24 @@ function add(arr1,arr2)
     {
         min.unshift(0);
     }
-    console.log(arr);
-    console.log(arr1);
-    console.log(arr2);
     for(var j=arr1.length-1;j>=0;j--)
     {
-        arr.unshift(arr1[j]+arr2[j]+count);
-        if(arr[j]>=2)
+        add=arr1[j]+arr2[j]+count;
+        if(add>=2)
         {
-            arr[j]=arr[j]-2;
+            arr.unshift(add-2);
             count=1;
         }
         else
+        {   
             count=0;
+            arr.unshift(add);
+        }
     }
     arr.unshift(count);
-    console.log(arr);
+    arr = arr.join("");
     return arr;
 }
-alert(add([1,0,0],[1,1,0]));
 </script>
 </head>
 <body>

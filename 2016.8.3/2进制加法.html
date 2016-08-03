@@ -1,0 +1,47 @@
+<html>
+<head>
+<script>
+function addBin(s1,s2)
+{
+    s1=reverseStr(s1);
+    s2=reverseStr(s2);
+    var min = s1;
+    if(s2.length<s1.length)
+        min=s2;
+    var d=Math.abs(s1.length-s2.length);
+    for(var i=0;i<d;i++)
+    {
+        min.push(0);
+    }
+    var count=0;
+    var arr=[];
+    for(var i in s1)
+    {
+        var addres=s1[i]+s2[i]+count;
+            if(addres>=2)
+            {
+                count=1;
+                arr.push(addres-2);
+            }
+            else
+            {
+                count=0;
+                arr.push(addres);
+            }
+    }
+    if(count!=0)
+        arr.push(count);
+    arr.reverse();
+    return arr.join("");
+}
+function reverseStr(s)
+{
+    var arr=s.split("");
+    arr.reverse();
+    return arr.map(Number);
+}
+</script>
+</head>
+<body>
+</body>
+</html>

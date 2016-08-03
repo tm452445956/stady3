@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+function kai(x)
+{
+    x=Math.sqrt(x);
+    if(par(x))
+        return x;
+    else
+        return "不是";
+}
+function par(x)
+{
+    return x==parseInt(x);
+}
+function hui(x)
+{
+    var t=[];
+    for(var i=0;i<x.length;i++)
+        t.push(x[i]);
+    x=x.reverse();
+    x=x.join("");
+    t=t.join("");
+    if(x==t)
+        return "是";
+    else
+        return "不是";
+}
+</script>
+</head>
+<body>
+</body>
+</html>

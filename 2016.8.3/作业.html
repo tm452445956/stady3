@@ -1,0 +1,78 @@
+<html>
+<head>
+<script>
+var w = 0;
+var h = 0;
+function move(e)
+{
+    if(e.keyCode==37)
+    {
+        w-=100;
+        if(w<0)
+        {
+            w=700;
+            xx.style.left=w+"px";
+        }
+        else
+            xx.style.left=w+"px";            
+    }
+    if(e.keyCode==38)
+    {
+        h-=100;
+        if(h<0)
+        {
+            h=700;
+            xx.style.top=h+"px";
+        }
+        else
+            xx.style.top=h+"px";        
+    }
+    if(e.keyCode==39)
+    {
+        w+=100;
+        if(w>700)
+        {
+            w=0;
+            xx.style.left=w+"px";
+        }
+        else
+            xx.style.left=w+"px";        
+    }
+    if(e.keyCode==40)
+    {
+        h+=100;
+        if(h>700)
+        {
+            h=0;
+            xx.style.top=h+"px";
+        }
+        else
+            xx.style.top=h+"px";        
+    }
+}
+function yidong()
+{
+    if(h>700)
+    {
+        h=700;
+        if(w>700)
+        {};
+        
+        w+=100;
+        xx.style.left=w+"px";
+        
+    }
+    h+=100;
+    xx.style.top=h+"px";
+}
+
+document.onkeydown=move;
+</script>
+</head>
+<body>
+<div style="width:800px;height:800px;border:1px solid black">
+<div id="xx" style="width:100px;height:100px;background:red;position:relative">
+</div>
+</div>
+</body>
+</html>

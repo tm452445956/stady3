@@ -1,0 +1,38 @@
+<html>
+<head>
+<script>
+function reverseStr(x)
+{
+    return x.reverse();
+}
+function addend(s1,s2)
+{
+    var arr=[];
+    reverseStr(s1);
+    reverseStr(s2);
+    var jie=0;
+    for(var i=0;i<s1.length;i++)
+    {
+        var cha=s2[i]-s1[i]-jie;
+        if(cha<0)
+        {
+            arr.push(cha+60);
+            jie=1;
+        }
+        else
+        {
+            arr.push(cha);
+            jie=0
+        }
+    }
+    return reverseStr(arr);    
+}
+function count(s1,s2)
+{
+    return  addend(s1,s2)[0]*3600+addend(s1,s2)[1]*60+addend(s1,s2)[2];
+}
+</script>
+</head>
+<body>
+</body>
+</html>
