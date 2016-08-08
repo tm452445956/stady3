@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
 <script>
 function Snake()
@@ -34,7 +34,8 @@ function Snake()
                         if(dir+this.dir==0)
                             return;
                         var head = this.points[0];                        
-                        this.move(head[0],head[1]-1)
+                        this.move(head[0],head[1]-1);
+                        
                         this.dir=dir;
                         this.show();
                    }
@@ -117,32 +118,35 @@ function Snake()
     }
     this.move=function(x,y)
     {
-                        if(y<0)
-                            y = this.arr[x].length-1;
-                        if(y>this.arr[0].length-1)
-                            y = 0;
-                        if(x<0)
-                            x = this.arr.length-1;
-                        if(x>this.arr.length-1)
-                            x = 0;
-                        var next = [x,y];
-                        if(this.arr.[x][y]==1)
-                            return alert("死了");
-                        this.points.unshift(next);
-                        if(this.arr[x][y]!=2)
-                            this.points.pop()
-                        else
-                        {
-                            while(true)
-                            {
-                                var i=parseInt(Math.random()*this.arr.length);
-                                var j=parseInt(Math.random()*this.arr[0].length);
-                                if(this.arr[i][j]==1||this.arr[i][j]==2)
-                                    continue;
-                                this.food=[i,j];
-                                break;
-                            }
-                        }
+        if(y<0)
+            y = this.arr[x].length-1;
+        if(y>this.arr[0].length-1)
+            y = 0;
+        if(x<0)
+            x = this.arr.length-1;
+        if(x>this.arr.length-1)
+            x = 0;
+        var next = [x,y];
+        if(this.arr[x][y]==1)
+        {
+            alert("死了");
+            return;
+        }
+        this.points.unshift(next);
+        if(this.arr[x][y]!=2)
+            this.points.pop();
+        else
+        {
+             while(true)
+            {
+                var i=parseInt(Math.random()*this.arr.length);
+                var j=parseInt(Math.random()*this.arr[0].length);
+                if(this.arr[i][j]==1||this.arr[i][j]==2)
+                    continue;
+                this.food=[i,j];
+                break;
+            }
+        }
     }
                    
 }
@@ -157,7 +161,7 @@ function f(e)
     if(e.keyCode==38)
     {
         s.movetop();
-        s.showHTML();
+        s.showHTML(); 
     }
     if(e.keyCode==39)
     {

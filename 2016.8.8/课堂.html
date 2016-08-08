@@ -1,0 +1,202 @@
+﻿<html>
+<head>
+<script>
+function fivegame(n)
+{
+    this.init_map=function (n)
+    {
+        var arr=[];
+        for(var i=0;i<n;i++)   
+        {
+            arr[i]=[];
+            for(var j=0;j<n;j++)
+                arr[i][j]=0;
+        }
+        return arr;
+    }
+    this.arr=this.init_map(n);
+    this.divs=[];
+    this.now=2;
+    this.showHTML=function()
+    {
+        if(this.divs.length==0)
+            this.initHTML();
+        else
+        {
+            for(var i in this.arr)
+            {
+                for(var j in this.arr[i])
+                {
+                    this.f(i,j,this.divs[i][j]);
+                }
+            }            
+        }
+
+    }
+    this.f=function(i,j,div)
+    {
+        if(this.arr[i][j]==0)
+            div.style.background="url(null.png)";
+        else if(this.arr[i][j]==1)
+            div.style.background="url(white.png)";
+        else 
+            div.style.background="url(black.png)";               
+    }
+    this.initHTML=function()
+    {
+        for(var i in this.arr)
+        {
+            var d=[];
+            for(var j in this.arr[i])
+            {
+                var div=document.createElement("div");
+                div.style.width="50px";
+                div.style.height="50px";
+                this.f(i,j,div);
+                div.style.position="absolute";
+                div.style.left=j*50+"px";
+                div.style.top=i*50+"px";
+                div.id=i+","+j;
+                div.onclick=function(e)
+                {
+                    var d=e.srcElement;
+                    var s=d.id;
+                    var arr=s.split(',');
+                    arr=arr.map(Number);
+                    fg.click(arr[0],arr[1]);
+                }
+                document.body.appendChild(div);
+                d.push(div);
+            }
+            this.divs.push(d);
+        }
+    
+    }
+    this.click=function (x,y)
+    {
+        if(this.arr[x][y]!=0)
+            return;
+        this.arr[x][y]=this.now;
+        this.showHTML();
+        this.cCount(x,y);
+        this.hCount(x,y);
+        this.zsCount(x,y);
+        this.ysCount(x,y);
+        if(this.now==2)
+            this.now=1;
+        else
+            this.now=2;
+    }
+    this.cCount=function(x,y)
+    {
+        var count=1;
+        for(var i=x;i<this.arr.length-1;i++)
+        {
+            if(this.arr[x][y]==this.arr[i+1][y])
+            {
+                count++;
+            }
+            else
+                break;    
+        }            
+        for(var j=x;j>0;j--)
+        {
+            if(this.arr[x][y]==this.arr[j-1][y])
+                count++;
+            else
+                break;
+        }
+        if(count==5)
+            alert("胜利");
+    }
+    this.hCount=function(x,y)
+    {
+        var count=1;
+        for(var i=y;i<this.arr[x].length-1;i++)
+        {
+            if(this.arr[x][y]==this.arr[x][i+1])
+                {
+                    count++;
+                }
+            else
+                break;    
+        }            
+        for(var j=y;j>0;j--)
+        {
+            if(this.arr[x][y]==this.arr[x][j-1])
+                count++;
+            else
+                break;
+        }
+        if(count==5)
+            alert("胜利");
+    }
+    this.zsCount=function(x,y)
+    {
+        var count=1;
+        var x1=x;
+        var y1=y;
+        for(var i=x;i<this.arr.length;i++)
+        {
+            x1++;
+            y1--;
+            if(this.arr[x1][y1]==this.arr[x][y])
+                count++;
+            else
+                break;
+        }
+        var x1=x;
+        var y1=y;
+        for(var i=x;i>=0;i--)
+        {
+            x1--;
+            y1++;
+            if(this.arr[x1][y1]==this.arr[x][y])
+                count++;
+            else
+                break;
+        }
+        if(count==5)
+            alert("胜利");
+    }
+    this.ysCount=function(x,y)
+    {
+        var count=1;
+        var x1=x;
+        var y1=y;
+        for(var i=x;i<this.arr.length;i++)
+        {
+            x1++;
+            y1++;
+            if(this.arr[x1][y1]==this.arr[x][y])
+            {    count++;
+                        console.log(count);}
+            else
+                break;
+        }
+        var x1=x;
+        var y1=y;
+        for(var i=x;i>=0;i--)
+        {
+            x1--;
+            y1--;
+            if(this.arr[x1][y1]==this.arr[x][y])
+            {    count++;
+                        console.log(count);}
+            else
+                break;
+        }
+        if(count==5)
+            alert("胜利");
+    }
+}
+var fg = new fivegame(12);
+
+</script>
+</head>
+<body onload="fg.showHTML()">
+<div>
+
+</div>
+</body>
+</html>
