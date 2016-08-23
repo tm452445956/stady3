@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+var a=prompt("输入2个正整数","");
+a=a.split(",");
+var arr=a.map(Number);
+function gy(x,y)
+{
+    if(y==0)
+    {
+        return x;
+    }
+    var z=x%y;
+    return gy(y,z);
+}
+function gb(x,y)
+{
+    var a=gy(x,y);
+    var b=(x/a)*(y/a)*a;
+    console.log(a);
+    return b;
+}
+document.write(gb(arr[0],arr[1]));
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+<script>
+function make(n)
+{
+    return function (m)
+    {
+        return m.map(function(x){return x*n})
+    }
+}
+var f=make(5)
+console.log(f([2,4,8]));
+</script>
+</head>
+<body>
+</body>
+</html>

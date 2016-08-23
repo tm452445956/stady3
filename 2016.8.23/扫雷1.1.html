@@ -1,0 +1,180 @@
+<html>
+<head>
+<script>
+function MineSweeper(n,m)
+{
+    this.initEmpty=function()
+    {
+        var arr=[];
+        for(var i=0;i<n;i++)
+        {
+            var arr1=[];
+            for(var j=0;j<n;j++)
+            {
+                arr1.push(0);
+            }
+            arr.push(arr1);
+        }
+        return arr;
+    }
+    this.data=this.initEmpty();
+    this.check=this.initEmpty();
+    this.randomMine=function()
+    {
+        for(var k=0;k<m;k++)
+        {
+            var i=parseInt(Math.random()*n);
+            var j=parseInt(Math.random()*n);
+            if(this.data[i][j]==-1)
+            {
+                k--;
+                continue;
+            }    
+            this.data[i][j]=-1;
+        }
+    }
+    this.come=function()
+    {
+        for(var x=0;x<this.data.length;x++)
+        {
+            for(var y=0;y<this.data[0].length;y++)
+            {       
+                this.data[x][y]=this.qiu(x,y,this.data);
+            }
+        }
+    }
+    this.qiu=function(x,y,arr)
+    {
+        var count=0;
+        if(arr[x][y]==-1)
+        {
+            return -1;
+        }
+        for(var i=-1;i<=1;i++)
+        {
+            for(var j=-1;j<=1;j++)
+            {
+                if(i==0&&j==0)
+                    continue;
+                var nx=x+i;
+                if(nx<0)
+                    continue;
+                if(nx>=arr.length)
+                    continue;
+                var ny=y+j;
+                if(ny>=arr.length)
+                    continue;
+                if(ny<0)
+                    continue;
+                if(arr[nx][ny]==-1)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    this.initHTML=function()
+    {
+        var divs=[];
+        for(var i=0;i<n;i++)
+        {
+            var div=[];
+            for(var j=0;j<n;j++)
+            {
+                var d = document.createElement("div");
+                d.style.width='50px';
+                d.style.height='50px';
+                d.style.position='absolute';
+                d.style.top=i*50+'px';
+                d.style.left=j*50+'px';
+                d.style.background='gray';
+                d.style.border='1px red solid';
+                d.id=i+","+j;
+                d.onclick=function(e)
+                {
+                    var d1=e.srcElement;
+                    var s=d1.id;
+                    var arr=s.split(',');
+                    arr=arr.map(Number);
+                    min.click(arr[0],arr[1]);
+                }
+                document.body.appendChild(d);
+                div.push(d);
+            }
+            divs.push(div);
+        }
+        return divs;
+    }
+    this.divs=[];
+    this.init=function()
+    {
+        this.randomMine();
+        this.come();
+        this.divs=this.initHTML();
+    }
+    this.click=function(x,y)
+    {
+        if(this.data[x][y]==0)
+            this.clickSpace(x,y);
+        if(this.data[x][y]==-1)
+        {
+            this.check[x][y]=1;
+            this.divs[x][y].style.background="";
+            this.divs[x][y].innerHTML=this.data[x][y];        
+            alert("gameover");
+            return;
+        }
+        else
+        {
+            this.check[x][y]=1;
+            this.divs[x][y].style.background="";
+            this.divs[x][y].innerHTML=this.data[x][y];
+        }
+    }
+    this.clickSpace=function(x,y)
+    {
+        this.check[x][y]=1;
+        this.divs[x][y].style.background = "";
+        this.divs[x][y].innerHTML = this.data[x][y];
+        for(var i=-1;i<=1;i++)
+        {
+            for(var j=-1;j<=1;j++)
+            {
+                if(i==0&&j==0)
+                    continue;
+                var nx=x+i;
+                if(nx<0)
+                    continue;
+                if(nx>=n)
+                    continue;
+                var ny=y+j;
+                if(ny>=n)
+                    continue;
+                if(ny<0)
+                    continue;
+                if(this.check[nx][ny]==1)
+                {
+                    continue;
+                }
+                if(this.check[nx][ny]==0&&this.data[nx][ny]==0)
+                {
+                    this.clickSpace(nx,ny);
+                }
+                else
+                {
+                this.check[nx][ny]=1;
+                this.divs[nx][ny].style.background = "";
+                this.divs[nx][ny].innerHTML = this.data[nx][ny];
+                }
+            }
+        }
+        
+    }
+}
+var min= new MineSweeper(13,15);
+</script>
+</head>
+<body onload="min.init()">
+</body>
+</html>

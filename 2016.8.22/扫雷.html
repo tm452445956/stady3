@@ -1,0 +1,52 @@
+<html>
+<head>
+<script>
+var arr=[[0,0,0,0],[-1,0,0,0],[0,-1,-1,0],[0,-1,0,0]];
+function come(arr)
+{
+    for(var x=0;x<arr.length;x++)
+    {
+        for(var y=0;y<arr[0].length;y++)
+        {       
+            arr[x][y]=qiu(x,y,arr);
+        }
+    }
+    return arr
+}
+function qiu(x,y,arr)
+{
+    var count=0;
+    if(arr[x][y]==-1)
+    {
+        return -1;
+    }
+    for(var i=-1;i<=1;i++)
+    {
+        for(var j=-1;j<=1;j++)
+        {
+            if(i==0&&j==0)
+                continue;
+            var nx=x+i;
+            if(nx<0)
+                continue;
+            if(nx>=arr.length)
+                continue;
+            var ny=y+j;
+            if(ny>=arr.length)
+                continue;
+            if(ny<0)
+                continue;
+            if(arr[nx][ny]==-1)
+            {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+console.log(come(arr));
+</script>
+</head>
+<body>
+</body>
+</html>

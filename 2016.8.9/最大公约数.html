@@ -1,0 +1,19 @@
+<html>
+<head>
+<script>
+var a=prompt("输入2个正整数","");
+a=a.split(",");
+var arr=a.map(Number);
+function gy(x,y)
+{
+    if(y==0)
+        return document.write(x);
+    var z=x%y;
+    return gy(y,z);
+}
+gy(arr[0],arr[1]);
+</script>
+</head>
+<body>
+</body>
+</html>

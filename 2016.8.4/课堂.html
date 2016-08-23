@@ -126,8 +126,6 @@ function Snake()
                         if(x>this.arr.length-1)
                             x = 0;
                         var next = [x,y];
-                        if(this.arr.[x][y]==1)
-                            return alert("死了");
                         this.points.unshift(next);
                         if(this.arr[x][y]!=2)
                             this.points.pop()

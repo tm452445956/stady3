@@ -107,7 +107,7 @@ function fivegame(n)
                 break;
         }
         if(count==5)
-            alert("胜利");
+            this.gameover();
     }
     this.hCount=function(x,y)
     {
@@ -115,9 +115,9 @@ function fivegame(n)
         for(var i=y;i<this.arr[x].length-1;i++)
         {
             if(this.arr[x][y]==this.arr[x][i+1])
-                {
-                    count++;
-                }
+            {
+                count++;
+            }
             else
                 break;    
         }            
@@ -129,7 +129,7 @@ function fivegame(n)
                 break;
         }
         if(count==5)
-            alert("胜利");
+            this.gameover();
     }
     this.zsCount=function(x,y)
     {
@@ -157,7 +157,7 @@ function fivegame(n)
                 break;
         }
         if(count==5)
-            alert("胜利");
+            this.gameover();
     }
     this.ysCount=function(x,y)
     {
@@ -169,8 +169,9 @@ function fivegame(n)
             x1++;
             y1++;
             if(this.arr[x1][y1]==this.arr[x][y])
-            {    count++;
-                        console.log(count);}
+            {    
+                count++;
+            }
             else
                 break;
         }
@@ -181,13 +182,23 @@ function fivegame(n)
             x1--;
             y1--;
             if(this.arr[x1][y1]==this.arr[x][y])
-            {    count++;
-                        console.log(count);}
+            {    
+                count++;
+            }
             else
                 break;
         }
         if(count==5)
-            alert("胜利");
+        {
+            this.gameover();
+        }
+    }
+    this.gameover=function()
+    {
+        var name = this.now==1?"白方":"黑方";
+        alert("恭喜"+name+"获得胜利");
+        this.arr=this.init_map(n);
+        this.showHTML();
     }
 }
 var fg = new fivegame(12);

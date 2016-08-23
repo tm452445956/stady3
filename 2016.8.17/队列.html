@@ -1,0 +1,26 @@
+<html>
+<head>
+<script>
+function Queue()
+{
+    this.arr=[];
+    this.enqueue=function(n)
+    {
+        this.arr.push(n)
+    }
+    this.dequeue=function()
+    {
+        var a=this.arr[0];
+        this.arr.splice(0,1);
+        return a;
+    }
+}
+var q = new Queue();
+q.enqueue(1);
+q.enqueue(2);
+q.enqueue(3);
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+<script>
+function Stack()
+{
+    this.arr=[];
+    this.push=function(n)
+    {
+        this.arr.push(n)
+    }
+    this.pop=function()
+    {
+        return this.arr.pop();
+    }
+    this.peek=function()
+    {
+        return this.arr[this.arr.length-1];
+    }
+    this.length=function (){return this.arr.length};
+}
+function Queue()
+{
+    this.temp=new Stack();
+    this.data=new Stack();
+    this.enqueue=function(n)
+    {
+        this.data.push(n)
+    }
+    this.dequeue=function()
+    {
+        while(this.data.length()>1)
+        {
+            this.temp.push(this.data.pop());
+        }
+        var x=this.data.pop();
+        while(this.temp.length()>0)
+        {
+            this.data.push(this.temp.pop())
+        }
+        return x;
+    }
+    this.peek=function()
+    {
+        while(this.data.length()>1)
+        {
+            this.temp.push(this.data.pop());
+        }
+        var x=this.data.peek();
+        this.temp.push(this.data.pop());
+        while(this.temp.length()>0)
+        {
+            this.data.push(this.temp.pop())
+        }
+        return x;
+    }
+    this.count=function(){return this.arr.length;}
+}
+</script>
+</head>
+<body>
+</body>
+</html>
