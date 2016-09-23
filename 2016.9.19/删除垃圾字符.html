@@ -1,0 +1,21 @@
+<html>
+<head>
+<script>
+function removeNoise(str)
+{
+    str=str.split("");
+    str=str.filter(function(x)
+                    {
+                        return (x!='%'&&x!='&'&&x!='.'&&x!='$'&&x!='@'&&x!='#'&&x!='，');
+                    }
+                    );
+    
+    return str.join("");
+}
+var test1 = "h%e&，%$，llo w&%or&$l，$%d";
+document.write(removeNoise(test1));// "hello world"
+</script>
+</head>
+<body>
+</body>
+</html>

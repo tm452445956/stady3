@@ -1,0 +1,29 @@
+<html>
+<head>
+<script>
+function come(n)
+{
+    var s=0;
+    var a='';
+    if(n<0)
+        return n+'<0';
+    for(var i=0;i<=n;i++)
+    {
+        if(i<n)
+        {
+            a=a+i+'+';
+            s+=i;
+        }
+        else 
+        {
+            a=a+i+'=';
+            s+=i;
+        }
+    }
+    return a+s;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

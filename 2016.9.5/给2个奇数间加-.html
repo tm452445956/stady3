@@ -1,0 +1,22 @@
+<html>
+<head>
+<script>
+function insertDash(num)
+{
+    num=num+"";
+    var str="";
+    for(var i in num)
+    {
+        if(i>0&&num[i]%2==1&&num[i-1]%2==1)
+        {
+            str+='-';
+        }
+        str+=num[i];
+    }
+    return str;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

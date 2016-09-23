@@ -1,0 +1,19 @@
+<html>
+<head>
+<script>
+function isValid(n)
+{
+    n=n+'';
+    var s=0;
+    for(var i in n)
+    {
+        s+=Number(n[i]);
+    }
+    n=Number(n);
+    return n%s==0?true:false;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

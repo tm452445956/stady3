@@ -1,0 +1,64 @@
+<html>
+<head>
+<script>
+ //261235  [126235, 2, 0]   
+   // 从下标2 取出数字1，放到剩下的数26235中2的前面， 得到最小值126235  2的下标是0
+function start(n)
+{
+    var arr1=[];
+    var y=0;
+    var arr2=[];
+    n=n+'';
+    arr=n.split('');//[2,6,1,2,3,5]
+    var x=min(arr);//2
+    var num1=arr.slice(x,x+1);//1
+    arr.splice(x,1);//[2,6,2,3,5]
+    for(var i=0;i<arr.length;i++)
+    {
+        if(num1<arr[i])
+        {
+            y=i;
+            break;
+        }
+    }
+    //y=2
+    arr2=arr.slice(0,y).concat(num1).concat(arr.slice(y,arr.length));
+    arr2=arr2.join('');
+    arr2=Number(arr2);
+    var t=0;  
+    if(x-y==1)
+    {
+        t=x;
+        x=y;
+        y=t;
+    }
+    arr1.push(arr2,x,y);
+    return arr1;
+}
+function min(n)//161235
+{
+    arr=n.concat([]);
+    var count=0;
+        for(var j=0;j<n.length;j++)
+        {
+            var min=n[0];
+            for(var i=0;i<n.length;i++)
+            {
+                if(n[i]<min)
+                    min=n[i];
+            }
+            if(min==n[0])
+            {
+                n.splice(0,1);
+                count++;
+            }
+            else
+                return n.indexOf(min)+count;
+        }
+        return '已是最小值';
+}
+</script>
+</head>
+<body>
+</body>
+</html>

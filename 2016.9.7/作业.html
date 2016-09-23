@@ -1,0 +1,21 @@
+<html>
+<head>
+<script>
+function digpow(num,n)
+{
+    str=num+'';
+    var a=0;
+    for(var i=0;i<str.length;i++)
+    {
+        a+=Math.pow(str[i],n+i);
+    }
+    if(a%num==0)
+        return a/num;
+    else
+        return -1;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

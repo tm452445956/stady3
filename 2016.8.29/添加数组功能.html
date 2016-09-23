@@ -1,0 +1,40 @@
+<html>
+<head>
+<script>
+Array.prototype.square=function ()
+                       {
+                            return this.map(function (x){return x*x;});
+                       }
+Array.prototype.cube=function ()
+                       {
+                            return this.map(function (x){return x*x*x;});
+                       }
+Array.prototype.sum=function ()
+                       {
+                            return this.reduce(function(x,y)
+                                                {
+                                                    return x+y;
+                                                },0);
+                       }
+Array.prototype.average=function ()
+                       {
+                            var count =this.reduce(function(x,y)
+                                                {
+                                                    return x+y;
+                                                },0);
+                            return count/(this.length);
+                       }
+Array.prototype.even=function ()
+                       {
+                            return this.filter(function(x){return x%2==0});
+                       }
+Array.prototype.odd=function ()
+                       {
+                            return this.filter(function(x){return x%2==1});
+                       }
+var number=[1,2,3,4,5];
+</script>
+</head>
+<body>
+</body>
+</html>
