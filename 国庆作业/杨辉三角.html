@@ -1,0 +1,25 @@
+<html>
+<head>
+<script>
+function trigon(x)
+{
+    var arr=[1];
+    while(arr.length<x)
+    {
+        var arr1=arr.concat([]);
+        var arr2=arr.concat([]);
+        arr.push(0);
+        arr1.push(0);
+        arr2=[0].concat(arr2);
+        for (var i = 0; i < arr1.length; i++)
+        {
+            arr[i] = arr1[i] + arr2[i];
+        }
+    }
+    return arr;
+}
+</script>
+</head>
+<body>
+</body>
+</html>
